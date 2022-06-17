@@ -11,6 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemRepository {
 
+
     private final EntityManager em;
 
     public void save(Item item) {
@@ -22,10 +23,12 @@ public class ItemRepository {
     }
 
     public Item findOne(Long id) {
-        return em.find(Item.class,id);
+        return em.find(Item.class, id);
     }
-    public List<Item> findAll(){
-        return em.createQuery("select i from Item i", Item.class).getResultList();
+
+    public List<Item> findAll() {
+        return em.createQuery("select i from Item i", Item.class)
+                .getResultList();
     }
 
 
